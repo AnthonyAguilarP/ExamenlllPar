@@ -28,6 +28,7 @@ private User us;
         jLabel3 = new javax.swing.JLabel();
         c = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        d = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +59,8 @@ private User us;
                         .addComponent(b)
                         .addComponent(jLabel3)
                         .addComponent(c))
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(d))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,7 +80,9 @@ private User us;
                 .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(d)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,8 +93,10 @@ private User us;
         if(c.getPassword()==null)pass="";
        else pass = new String (c.getPassword());
         if(a.getText()!=null && !"".equals(a.getText()) && b.getText()!=null && !"".equals(b.getText()) && !"".equals(pass)){
-            
-        }
+            us=new User(a.getText(),b.getText(),pass);
+            Almacen.RegistroUsuario(us);
+            dispose();
+        }else d.setText("Complete la informacion");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -132,6 +138,7 @@ private User us;
     private javax.swing.JTextField a;
     private javax.swing.JTextField b;
     private javax.swing.JPasswordField c;
+    private javax.swing.JLabel d;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
