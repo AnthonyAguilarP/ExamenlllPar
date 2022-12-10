@@ -4,6 +4,8 @@
  */
 package examen;
 
+import java.io.File;
+
 /**
  *
  * @author CCBB
@@ -67,10 +69,13 @@ public class PrincipalClass extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private Acces ac=new Acces();
+private Login lo=new Login();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        a.setText((int)(Math.random()*6+1)+"");
+        File fi=new File("Usuario");
+        if(fi.exists())a.setText((int)(Math.random()*6+1)+"");
+        else if(!fi.exists())lo.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
