@@ -74,8 +74,10 @@ private Login lo=new Login();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         File fi=new File("Usuario");
-        if(fi.exists())a.setText((int)(Math.random()*6+1)+"");
+        if(fi.exists() && lo.getYa())a.setText((int)(Math.random()*6+1)+"");
+        else if(ac.getCorrect())a.setText((int)(Math.random()*6+1)+"");
         else if(!fi.exists())lo.setVisible(true);
+        else if(!ac.getCorrect())ac.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

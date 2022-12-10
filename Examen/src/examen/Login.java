@@ -87,7 +87,10 @@ private User us;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private boolean ya=false;
+public boolean getYa(){
+    return ya;
+}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String pass;
         if(c.getPassword()==null)pass="";
@@ -95,6 +98,7 @@ private User us;
         if(a.getText()!=null && !"".equals(a.getText()) && b.getText()!=null && !"".equals(b.getText()) && !"".equals(pass)){
             us=new User(a.getText(),b.getText(),pass);
             Almacen.RegistroUsuario(us);
+            ya=true;
             dispose();
         }else d.setText("Complete la informacion");
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -29,8 +29,8 @@ public class Acces extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         a = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        b = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        b = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,13 +51,12 @@ public class Acces extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1)
-                        .addComponent(a)
-                        .addComponent(jLabel2)
-                        .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addComponent(a)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton1)
+                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
                 .addContainerGap(241, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,17 +70,26 @@ public class Acces extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jButton1)
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private boolean correct=false;
+public boolean getCorrect(){
+    return correct;
+}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        if(Almacen.IngresoUsuario().getId().equals(a.getText().toLowerCase()) || Almacen.IngresoUsuario().getNombre().equals(a.getText().toLowerCase())){
+            String pass = new String (b.getPassword());
+            if(pass.equals(Almacen.IngresoUsuario().getContra())){
+                correct=true;
+                dispose();
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -121,7 +129,7 @@ public class Acces extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a;
-    private javax.swing.JTextField b;
+    private javax.swing.JPasswordField b;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

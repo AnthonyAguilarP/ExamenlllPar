@@ -1,5 +1,8 @@
 package examen;
-public class User {
+
+import java.io.Serializable;
+
+public class User implements Serializable{
    private String nombre, id, contra;
 
     public String getNombre() {
@@ -27,8 +30,8 @@ public class User {
     }
 
     public User(String nombre, String id, String contra) {
-        this.nombre = nombre;
-        this.id = id;
+        this.nombre = nombre.toLowerCase();
+        this.id = id.toLowerCase();
         this.contra = contra;
     }
    
